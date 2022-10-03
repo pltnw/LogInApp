@@ -132,6 +132,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7vC-hb-st4"/>
                     <connections>
+                        <outlet property="backgroundView" destination="BiT-z9-b4g" id="f51-dF-mYB"/>
                         <outlet property="welcomeMessege" destination="E1i-Kg-zjq" id="Pn1-YS-2wa"/>
                     </connections>
                 </viewController>
