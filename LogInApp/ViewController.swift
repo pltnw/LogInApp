@@ -12,13 +12,14 @@ class ViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeViewController = segue.destination as? WelcomeViewController else { return }
         welcomeViewController.userName = userNameTF.text
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
         guard let userName = userNameTF.text, let password = passwordTF.text else { return }
         if userName != "User" || password != "Password" {
             showAlert(withTitle: "Invalid login or password", andMessage: "Please, enter correct login or password")
+            passwordTF.text = ""
         }
     }
     
@@ -40,7 +42,6 @@ class ViewController: UIViewController {
     @IBAction func forgotPasswordDidTapped() {
         showAlert(withTitle: "Oops!", andMessage: "Your password is Password 😊")
     }
-    
 }
 
 extension ViewController {
